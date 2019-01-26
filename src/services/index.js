@@ -3,7 +3,8 @@ import request from 'superagent';
 const baseUrl = 'https://pokeapi.co/api/v2/';
 
 export const listPokemons = async (listUrl) => {
-    return await request.get(listUrl);
+    console.log(listUrl, 'url');
+    return await request.get(listUrl).set('Access-Control-Allow-Origin', '*');
 };
 
 export const getPokemon = async (pokemonName) => {
