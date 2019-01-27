@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { PokemonListContainer } from './components/PokemonList';
+import { PokemonDetailContainer } from './components/PokemonDetail'
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,6 +18,7 @@ class App extends Component {
         <Router>
           <div>
             <Route exact path="/" component={PokemonListContainer} />
+            <Route path="/detail/:pokemonName" component={PokemonDetailContainer} />
           </div>
         </Router> 
       </div>
