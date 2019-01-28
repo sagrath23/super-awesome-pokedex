@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ReactSVG from 'react-svg';
 class PokemonDetail extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +12,7 @@ class PokemonDetail extends Component {
       const { detailedPokemon } = this.props;
       return detailedPokemon ? (
         <div>
-          <img alt="pokemon_sprite" src={detailedPokemon.sprites.front_default} />
+          <ReactSVG src={`./images/pokemons/${detailedPokemon.id}.svg`} />
           <p>{detailedPokemon.name} <small>pokemon ID{detailedPokemon.id}</small></p>
           <ul>
             {detailedPokemon.types.map((pokemonSlot, index) => (<li key={index}>{pokemonSlot.type.name}</li>))}
