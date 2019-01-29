@@ -1,5 +1,5 @@
-import PokemonListContainer from './PokemonListContainer';
+import PokemonList from './PokemonList';
 
 export {
-  PokemonListContainer
-}
+  PokemonList
+};

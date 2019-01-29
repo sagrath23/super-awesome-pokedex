@@ -1,32 +1,26 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { useDispatch, useMappedState } from 'redux-react-hook'
+import { loadListAction, loadPokemonAction } from '../../actions';
 
 const extractPokemonIDFromURL = (url) => (url.split('/')[6]);
 
-const PokemonList = ({ currentPokemonList, loadListAction }) => (
-  <div>
-    <ul>
-      {currentPokemonList.results.map((pokemon, index) => (
-        <li key={index}>
-          <Link to={`/detail/${pokemon.name}`}>
+const PokemonList = () => {
+  const mapState = useCallback((state) => state.currentPokemonList, []);
+  const currentPokemonList = useMappedState(mapState);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <ul>
+        {currentPokemonList.results.map((pokemon, index) => (
+          <li key={index} onClick={() => dispatch(loadPokemonAction(pokemon.name))}>
             <img alt="pokemon_sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractPokemonIDFromURL(pokemon.url)}.png`} />
             {pokemon.name}
-          </Link>
-        </li>))}
-    </ul>
-    <button onClick={() => (currentPokemonList.previous ? loadListAction(currentPokemonList.previous) : null)}>Prev</button>
-    <button onClick={() => (currentPokemonList.next ? loadListAction(currentPokemonList.next) : null)}>Next</button>
-  </div>);
-
-PokemonList.propTypes = {
-  currentPokemonList: PropTypes.object,
-  loadListAction: PropTypes.func
-};
-
-PokemonList.defaultProps = {
-  currentPokemonList: {},
-  loadListAction: () => {}
-};
+          </li>))}
+      </ul>
+      <button onClick={() => (currentPokemonList.previous ? dispatch(loadListAction(currentPokemonList.previous)) : null)}>Prev</button>
+      <button onClick={() => (currentPokemonList.next ? dispatch(loadListAction(currentPokemonList.next)) : null)}>Next</button>
+    </div>);
+} 
 
 export default PokemonList

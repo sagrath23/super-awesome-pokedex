@@ -3,11 +3,13 @@ import {
   takeEvery,
   call
 } from 'redux-saga/effects';
+import { push } from 'react-router-redux';
 import { getPokemon } from '../services';
 import * as actions from '../actions';
 
 export function* loadPokemonDetail(action) {
   const requestResult = yield call(getPokemon, action.payload.pokemonName);
+  yield put(push(`/pokemons/${action.payload.pokemonName}`));
   yield put(actions.detailAction(requestResult.body));
 }
 

@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { PokemonListContainer } from './components/PokemonList';
-import { PokemonDetailContainer } from './components/PokemonDetail'
-import logo from './logo.svg';
+import { Route } from 'react-router-dom';
+import { PokemonList } from './components/PokemonList';
+import { PokemonDetail } from './components/PokemonDetail';
+import CustomBrowserRouter from './routes/CustomBrowserRouter';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-        </header>
-        <Router>
-          <div>
-            <Route exact path="/" component={PokemonListContainer} />
-            <Route path="/detail/:pokemonName" component={PokemonDetailContainer} />
-          </div>
-        </Router> 
+        <CustomBrowserRouter>
+          <Route exact path="/pokemons" component={PokemonList} />
+          <Route exact path="/pokemons/:pokemonName" component={PokemonDetail} />
+        </CustomBrowserRouter> 
       </div>
     );
   }
