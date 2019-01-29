@@ -12,7 +12,7 @@ class PokemonDetail extends Component {
       const { detailedPokemon } = this.props;
       return detailedPokemon ? (
         <div>
-          <ReactSVG src={`./images/pokemons/${detailedPokemon.id}.svg`} />
+          <ReactSVG src={`../images/pokemons/${detailedPokemon.id}.svg`} />
           <p>{detailedPokemon.name} <small>pokemon ID{detailedPokemon.id}</small></p>
           <ul>
             {detailedPokemon.types.map((pokemonSlot, index) => (<li key={index}>{pokemonSlot.type.name}</li>))}
