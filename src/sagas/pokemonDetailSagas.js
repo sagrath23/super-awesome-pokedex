@@ -3,7 +3,6 @@ import {
   takeEvery,
   call
 } from 'redux-saga/effects';
-// import { push } from 'react-router-redux';
 import { getPokemon } from '../services';
 import history from '../routes/history';
 import * as actions from '../actions';
