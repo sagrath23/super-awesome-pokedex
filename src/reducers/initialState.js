@@ -84,6 +84,6 @@ export const initialState = {
         "name": "raticate"
       }
     ],
-    "next": "https://pokeapi-215911.firebaseapp.com/api/v2/pokemon/?offset=20&limit=20 "
+    "next": "https://pokeapi-215911.firebaseapp.com/api/v2/pokemon/?offset=20&limit=20"
   }
 };

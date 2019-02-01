@@ -9,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Pokedex!!</h1>
         <Router history={history}>
           <div>
             <Route exact path="/pokemons" component={PokemonList} />
