@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Router } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
+import Layout from './pages/layout';
 import { PokemonList } from './components/PokemonList';
 import { PokemonDetail } from './components/PokemonDetail';
 import history from './routes/history';
@@ -9,11 +10,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Pokedex!!</h1>
         <Router history={history}>
           <div>
-            <Route exact path="/pokemons" component={PokemonList} />
-            <Route path="/pokemons/:pokemonName" component={PokemonDetail} />
+            <Route component={Layout} />
+            <Switch>
+              <Route exact path="/pokemons" component={PokemonList} />
+              <Route exact path="/pokemons/:pokemonName" component={PokemonDetail} />
+            </Switch>
           </div>
         </Router> 
       </div>
