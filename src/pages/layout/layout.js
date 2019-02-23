@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
+import { PokemonList } from '../../components/PokemonList';
+import { PokemonDetail } from '../../components/PokemonDetail';
 import SearchAppBar from '../../components/common/SearchAppBar';
 
 const styles = theme => ({
@@ -69,6 +72,10 @@ function Layout(props) {
   return (
     <div className={classes.root}>
       <SearchAppBar />
+      <Switch>
+        <Route exact path="/pokemons" component={PokemonList} />
+        <Route exact path="/pokemons/:pokemonName" component={PokemonDetail} />
+      </Switch>
     </div>
   );
 }

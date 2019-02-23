@@ -9,6 +9,9 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import ArrowForward from '@material-ui/icons/ArrowForward';
+import NavButtons from '../common/NavButtons';
 
 const styles = theme => ({
   root: {
@@ -17,6 +20,9 @@ const styles = theme => ({
     justifyContent: 'space-around',
     overflow: 'hidden',
     backgroundColor: theme.palette.background.paper,
+  },
+  pokemonSprite: {
+    width: '200px'
   },
   gridList: {
     width: '100%',
@@ -38,12 +44,12 @@ const  PokemonList = (props) => {
   return (
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
-        <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+        <GridListTile key="Subheader" cols={2} style={{ height: '50px' }}>
           <ListSubheader component="div">Pokemons</ListSubheader>
         </GridListTile>
         {currentPokemonList.results.map((pokemon, index) => (
           <GridListTile key={index}>
-            <img alt="pokemon_sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractPokemonIDFromURL(pokemon.url)}.png`} />
+            <img className={classes.pokemonSprite} alt="pokemon_sprite" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractPokemonIDFromURL(pokemon.url)}.png`} />
             <GridListTileBar
               title={pokemon.name}
               subtitle={<span>ID: {extractPokemonIDFromURL(pokemon.url)}</span>}
@@ -55,6 +61,7 @@ const  PokemonList = (props) => {
             />
           </GridListTile>))}
       </GridList>
+      <NavButtons items={[{label: 'Back', icon: <ArrowBack />}, {label: 'Next', icon: <ArrowForward />}]} />
       <button onClick={() => (currentPokemonList.previous ? dispatch(loadListAction(currentPokemonList.previous)) : null)}>Prev</button>
       <button onClick={() => (currentPokemonList.next ? dispatch(loadListAction(currentPokemonList.next)) : null)}>Next</button>
     </div>
