@@ -12,31 +12,11 @@ import InfoIcon from '@material-ui/icons/Info';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import ArrowForward from '@material-ui/icons/ArrowForward';
 import NavButtons from '../common/NavButtons';
-
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  pokemonSprite: {
-    width: '200px'
-  },
-  gridList: {
-    width: '100%',
-    height: '100%',
-  },
-  icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
-  },
-});
+import styles from './styles';
 
 const extractPokemonIDFromURL = (url) => (url.split('/')[6]);
 
-const  PokemonList = (props) => {
-  const { classes } = props;
+const  PokemonList = ({ classes }) => {
   const mapState = useCallback((state) => state.currentPokemonList, []);
   const currentPokemonList = useMappedState(mapState);
   const dispatch = useDispatch();
