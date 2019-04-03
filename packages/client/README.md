@@ -1,4 +1,4 @@
-## Super Awesome Pokedex
+## # @superawesomepokedex/client
 
 This package is the UI for the pokedex.
 
