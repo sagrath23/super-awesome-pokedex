@@ -1,23 +1,24 @@
-sudo: required
-dist: trusty
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
 language: node_js
 node_js:
-  - "9"
+  - '8'
+  - '10'
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
 before_install:
-    - "npm config set spin false"
-    - "npm install -g npm@^5"
-install:
-    - lerna bootstrap
+  - curl -o- -L https://yarnpkg.com/install.sh | bash -s
+  - export PATH="$HOME/.yarn/bin:$PATH"
+before_script:
+  - yarn run lerna run prepublish
 script:
-    - npm install codecov -g
-    - lerna run test
-after_success:
-    - codecov
-build: 
-    - npm run build:babel
+  - yarn test
+before_deploy:
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
+deploy:
+  provider: script
+  script: "yarn run lerna:publish"
+  skip_cleanup: true
+  on:
+    node: "8"
+    tags: true
