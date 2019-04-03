@@ -1,6 +1,6 @@
 ## Super Awesome Pokedex
 
-This is a very cool pokedex that i use to learn new stuff related to React & Automation testing.
+This package is the UI for the pokedex.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
