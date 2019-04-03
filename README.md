@@ -1,6 +1,6 @@
 ## Super Awesome Pokedex
 
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) 
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) [![CircleCI](https://circleci.com/gh/sagrath23/super-awesome-pokedex/tree/master.svg?style=svg)](https://circleci.com/gh/sagrath23/super-awesome-pokedex/tree/master)
 
 This is a very cool pokedex that i use to learn new stuff related to React & Automation testing.
 
