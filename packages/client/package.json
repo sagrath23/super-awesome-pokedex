@@ -1,6 +1,7 @@
 {
   "name": "@pokedex/client",
   "version": "0.1.0",
+  "description": "Super awesome pokedex UI",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",

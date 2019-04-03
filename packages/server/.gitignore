@@ -1,0 +1,9 @@
+# vscode
+.vscode
+
+#node mudules
+node_modules
+
+#dist files
+dist
+lib
