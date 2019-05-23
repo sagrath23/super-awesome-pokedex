@@ -24,7 +24,7 @@
   "author": "Steven Augusto Villegas Castellanos",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/sagrath23/template/issues"
+    "url": "https://github.com/sagrath23/super-awesome-pokedex/issues"
   },
   "jest": {
     "testPathIgnorePatterns": [
@@ -32,7 +32,7 @@
       "/node_modules/"
     ]
   },
-  "homepage": "https://github.com/sagrath23/template#readme",
+  "homepage": "https://github.com/sagrath23/super-awesome-pokedex#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
@@ -47,6 +47,8 @@
     "regenerator-runtime": "^0.12.1"
   },
   "dependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
