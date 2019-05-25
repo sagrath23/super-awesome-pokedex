@@ -1,6 +1,6 @@
 import { version } from '../../package.json';
 import { Router } from 'express';
-import * as PokedexController from '../controllers/PokedexController'
+import * as pokedexController from '../controllers/pokedexController'
 
 export default ({ config, db }) => {
   let api = Router();
@@ -13,8 +13,9 @@ export default ({ config, db }) => {
     res.json({ version });
   });
 
-  api.get('/pokemon/:pokemonName', (req, res) => {
-    res.json(PokedexController.getPokemon(req.params))
+  api.get('/pokemons/:pokemonName', async (req, res) => {
+    const response = await pokedexController.getPokemon(req.params);
+    res.json(response.text);
   });
 
   return api;

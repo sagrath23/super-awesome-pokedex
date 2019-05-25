@@ -1,6 +1,6 @@
 {
   "port": 3089,
-  "pokemonsApi": "https://pokeapi-215911.firebaseapp.com/api/v2/",
+  "pokeapiUrl": "https://pokeapi-215911.firebaseapp.com/api/v2/",
 	"bodyLimit": "100kb",
 	"corsHeaders": "[Link]"
 }
