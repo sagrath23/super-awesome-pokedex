@@ -14,8 +14,7 @@ export default ({ config, db }) => {
   });
 
   api.get('/pokemons/:pokemonName', async (req, res) => {
-    const response = await pokedexController.getPokemon(req.params);
-    res.json(response.text);
+    res.json(await pokedexController.getPokemon(req.params));
   });
 
   return api;
